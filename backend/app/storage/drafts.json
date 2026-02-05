@@ -1,0 +1,84 @@
+[
+    {
+        "id": "draft-1",
+        "template_id": "technical-1",
+        "last_modified": "2026-02-05T17:19:10.431671",
+        "data": {
+            "full_name": "Rafi Haque",
+            "city": "Dhaka, Bangladesh",
+            "country": "Bangladesh",
+            "email": "hrafi0445@gmail.com",
+            "phone": "01791593204",
+            "portfolio_url": "https://github.com/RafisGit",
+            "linkedin_url": "https://www.linkedin.com/in/rafihoque/",
+            "github_url": "https://rafihaque.vercel.app/",
+            "technical_skills": {
+                "languages": [
+                    "C++",
+                    "Java",
+                    "Python",
+                    "Java Script"
+                ],
+                "frameworks": [
+                    "Next Js",
+                    "React"
+                ],
+                "tools": [
+                    "VS code"
+                ],
+                "databases": [
+                    "MongoDB"
+                ]
+            },
+            "projects": [
+                {
+                    "title": "AI CV maker",
+                    "start_month": "02",
+                    "start_year": "2026",
+                    "end_month": "03",
+                    "end_year": "2026",
+                    "github_url": null,
+                    "live_url": null,
+                    "tech_stack": [
+                        "HTML",
+                        "CSS",
+                        "JAVA SCRIPT",
+                        "NEXT JS",
+                        "MONGO DB"
+                    ],
+                    "bullets": [
+                        "OPTIMIZED "
+                    ]
+                }
+            ],
+            "work_experience": [
+                {
+                    "role": "Full Stack developer",
+                    "company": "Rafis company",
+                    "employment_type": "Rafi",
+                    "location": "58/3 North Mugda Dhaka",
+                    "start_month": "02",
+                    "start_year": "2026",
+                    "end_month": "02",
+                    "end_year": "2025",
+                    "bullets": [
+                        "Research"
+                    ]
+                }
+            ],
+            "education": [
+                {
+                    "institution": "North South University",
+                    "degree": "CSE",
+                    "start_year": "2021",
+                    "end_year": "2026",
+                    "coursework": [
+                        "CSE440",
+                        "CSE445",
+                        "SOC101"
+                    ]
+                }
+            ]
+        }
+    }
+]
