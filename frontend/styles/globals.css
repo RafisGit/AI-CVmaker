@@ -16,8 +16,20 @@
   }
   
   /* Hide all UI elements */
-  header, nav, button, .no-print, [role="navigation"] {
+  .no-print, 
+  [role="navigation"],
+  nav,
+  button,
+  .form-container {
     display: none !important;
+  }
+  
+  /* Ensure template elements are visible */
+  .preview-container,
+  .preview-container header, 
+  .preview-container section,
+  .preview-container div {
+    display: block !important;
   }
 
   /* Reset main layout */
