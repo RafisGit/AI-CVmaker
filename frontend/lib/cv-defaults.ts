@@ -9,12 +9,7 @@ export const createEmptyCV = (): CVData => ({
     portfolio_url: '',
     linkedin_url: '',
     github_url: '',
-    technical_skills: {
-        languages: [],
-        frameworks: [],
-        tools: [],
-        databases: [],
-    },
+    technical_skills: [],
     projects: [],
     work_experience: [],
     education: [],

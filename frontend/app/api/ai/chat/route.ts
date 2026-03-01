@@ -112,6 +112,35 @@ const safeUrl = (value: unknown) => {
     }
 };
 
+const normalizeTechnicalSkills = (technicalSkills: unknown) => {
+    if (Array.isArray(technicalSkills)) {
+        return technicalSkills
+            .map((category) => ({
+                title: asString((category as { title?: unknown })?.title),
+                skills: asStringArray((category as { skills?: unknown })?.skills),
+            }))
+            .filter((category) => category.title || category.skills.length > 0);
+    }
+
+    if (technicalSkills && typeof technicalSkills === 'object') {
+        const legacySkills = technicalSkills as {
+            languages?: unknown;
+            frameworks?: unknown;
+            tools?: unknown;
+            databases?: unknown;
+        };
+
+        return [
+            { title: 'Languages', skills: asStringArray(legacySkills.languages) },
+            { title: 'Frameworks/Libraries', skills: asStringArray(legacySkills.frameworks) },
+            { title: 'Tools', skills: asStringArray(legacySkills.tools) },
+            { title: 'Databases', skills: asStringArray(legacySkills.databases) },
+        ].filter((category) => category.skills.length > 0);
+    }
+
+    return [];
+};
+
 const normalizeCVData = (raw: any) => ({
     full_name: asString(raw?.full_name, 'Candidate Name'),
     city: asString(raw?.city, 'Dhaka'),
@@ -121,12 +150,7 @@ const normalizeCVData = (raw: any) => ({
     portfolio_url: safeUrl(raw?.portfolio_url),
     linkedin_url: safeUrl(raw?.linkedin_url),
     github_url: safeUrl(raw?.github_url),
-    technical_skills: {
-        languages: asStringArray(raw?.technical_skills?.languages),
-        frameworks: asStringArray(raw?.technical_skills?.frameworks),
-        tools: asStringArray(raw?.technical_skills?.tools),
-        databases: asStringArray(raw?.technical_skills?.databases),
-    },
+    technical_skills: normalizeTechnicalSkills(raw?.technical_skills),
     projects: Array.isArray(raw?.projects)
         ? raw.projects.map((project: any) => ({
               title: asString(project?.title, 'Project'),
@@ -179,7 +203,7 @@ export async function POST(request: Request) {
             {
                 role: 'system',
                 content:
-                    'You are a resume copilot assistant. Return only valid JSON with keys assistantMessage and data. data must follow the exact resume schema and include all required fields. No markdown or code fences.',
+                    'You are a resume copilot assistant. Return only valid JSON with keys assistantMessage and data. data must follow the exact resume schema and include all required fields. technical_skills must be an array of objects with keys title and skills (string array). No markdown or code fences.',
             },
             {
                 role: 'user',
