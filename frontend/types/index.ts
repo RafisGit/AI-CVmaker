@@ -1,8 +1,6 @@
-export interface TechnicalSkills {
-    languages: string[];
-    frameworks: string[];
-    tools: string[];
-    databases: string[];
+export interface SkillCategory {
+    title: string;
+    skills: string[];
 }
 
 export interface Project {
@@ -46,7 +44,7 @@ export interface CVData {
     portfolio_url?: string;
     linkedin_url?: string;
     github_url?: string;
-    technical_skills: TechnicalSkills;
+    technical_skills: SkillCategory[];
     projects: Project[];
     work_experience: WorkExperience[];
     education: Education[];

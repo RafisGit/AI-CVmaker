@@ -9,12 +9,12 @@ export const CVDataSchema = z.object({
     portfolio_url: z.string().url().optional().or(z.literal("")),
     linkedin_url: z.string().url().optional().or(z.literal("")),
     github_url: z.string().url().optional().or(z.literal("")),
-    technical_skills: z.object({
-        languages: z.array(z.string()),
-        frameworks: z.array(z.string()),
-        tools: z.array(z.string()),
-        databases: z.array(z.string()),
-    }),
+    technical_skills: z.array(
+        z.object({
+            title: z.string(),
+            skills: z.array(z.string()),
+        })
+    ),
     projects: z.array(z.object({
         title: z.string().min(1),
         start_month: z.string(),
